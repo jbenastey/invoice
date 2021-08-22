@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [DashboardController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function (){
+    Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+    Route::resource('produk',ProdukController::class);
+});
+
 
 require __DIR__.'/auth.php';

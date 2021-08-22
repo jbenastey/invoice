@@ -93,10 +93,9 @@
 
 <!-- Datatable init js -->
 <script src="{{asset('veltrix/assets/pages/datatables.init.js')}}"></script>
-<script src="{{asset('veltrix/assets/js/chart.min.js')}}"></script>
 <!-- App js -->
 <script src="{{asset('veltrix/assets/js/app.js')}}"></script>
-<script src="{{asset('js/grafik.js')}}"></script>
+<script src="{{asset('veltrix/assets/js/custom.js')}}"></script>
 
 </body>
 

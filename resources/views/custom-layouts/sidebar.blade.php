@@ -11,24 +11,10 @@
                         <i class="mdi mdi-home"></i><span> Beranda </span>
                     </a>
                 </li>
+                <li class="menu-title">Master Data</li>
                 <li>
-                    <a href="{{url('data')}}" class="waves-effect">
-                        <i class="mdi mdi-database"></i><span> Data </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{url('dataset')}}" class="waves-effect">
-                        <i class="mdi mdi-database-check"></i><span> Dataset </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{url('perhitungan')}}" class="waves-effect">
-                        <i class="mdi mdi-settings-outline"></i><span> Perhitungan </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{url('uji')}}" class="waves-effect">
-                        <i class="mdi mdi-settings"></i><span> Pengujian </span>
+                    <a href="{{url('produk')}}" class="waves-effect">
+                        <i class="mdi mdi-database"></i><span> Data Produk </span>
                     </a>
                 </li>
             </ul>
