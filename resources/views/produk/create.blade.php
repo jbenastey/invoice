@@ -32,7 +32,7 @@
                         <div class="form-group row">
                             <label for="gambar" class="col-2">Gambar</label>
                             <div class="col-9">
-                                <input name="gambar" type="file" required>
+                                <input name="gambar" type="file" class="dropify" data-allowed-file-extensions="jpg jpeg png"  required>
                             </div>
                         </div>
                         <div class="form-group row">
