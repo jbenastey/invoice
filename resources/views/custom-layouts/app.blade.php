@@ -15,6 +15,7 @@
     <link href="{{asset('veltrix/plugins/datatables/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Responsive datatable examples -->
     <link href="{{asset('veltrix/plugins/datatables/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('veltrix/plugins/magnific-popup/magnific-popup.css')}}" rel="stylesheet" type="text/css">
 
     <link href="{{asset('veltrix/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('veltrix/plugins/dropify/css/dropify.min.css')}}" rel="stylesheet" type="text/css">
@@ -94,7 +95,11 @@
 
 <!-- Datatable init js -->
 <script src="{{asset('veltrix/assets/pages/datatables.init.js')}}"></script>
+
 <script src="{{asset('veltrix/plugins/dropify/js/dropify.min.js')}}"></script>
+<script src="{{asset('veltrix/plugins/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('veltrix/assets/pages/lightbox.js')}}"></script>
+
 <!-- App js -->
 <script src="{{asset('veltrix/assets/js/app.js')}}"></script>
 <script src="{{asset('veltrix/assets/js/custom.js')}}"></script>

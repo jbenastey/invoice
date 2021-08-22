@@ -32,7 +32,11 @@
                                 <td>{{$value->nama_produk}}</td>
                                 <td>{{$value->harga}}</td>
                                 <td>{{$value->stok}}</td>
-                                <td><img src="{{asset($value->gambar)}}" alt=""></td>
+                                <td>
+                                    <a class="image-popup-no-margins" href="{{asset($value->gambar)}}">
+                                        <img class="img-fluid" alt="" src="{{asset($value->gambar)}}" width="75">
+                                    </a>
+                                </td>
                                 <td>{{$value->deskripsi}}</td>
                                 <td></td>
                             </tr>
