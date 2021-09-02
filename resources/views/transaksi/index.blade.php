@@ -39,7 +39,7 @@
                                 <td>{{$value->ponsel_klien}}</td>
                                 <td>{{$value->total_harga}}</td>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-success waves-effect waves-light">
+                                    <a href="{{route('transaksi.show',$value->id)}}" class="btn btn-sm btn-success waves-effect waves-light">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                 </td>

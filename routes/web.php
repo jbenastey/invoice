@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function (){
 
     Route::get('transaksi-detail/destroy/{id}',[TransaksiController::class,'deleteDetail'])->name('transaksi-detail.destroy');
     Route::post('transaksi/store',[TransaksiController::class,'store'])->name('transaksi.store');
+    Route::get('transaksi/{id}',[TransaksiController::class,'show'])->name('transaksi.show');
 
 });
 

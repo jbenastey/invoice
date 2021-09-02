@@ -66,4 +66,12 @@ class TransaksiController extends Controller
             return redirect('transaksi');
         }
     }
+
+    public function show($id){
+        $data = [
+            'transaksi' => Transaksi::findOrFail($id),
+            'detail' => TransaksiDetail::where('id_transaksi', $id)->get()
+        ];
+        return view('transaksi.show', $data);
+    }
 }
