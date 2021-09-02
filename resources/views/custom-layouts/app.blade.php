@@ -110,7 +110,7 @@
 <script src="{{asset('veltrix/assets/pages/form-advanced.js')}}"></script>
 <script src="{{asset('veltrix/assets/js/app.js')}}"></script>
 <script src="{{asset('veltrix/assets/js/custom.js')}}"></script>
-
+@yield('script')
 </body>
 
 </html>

@@ -104,6 +104,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="email_klien" class="col-2">Email</label>
+                            <div class="col-9">
+                                <input name="email_klien" id="email_klien" class="form-control" type="email" required placeholder="Isikan email"/>
+                                <input name="total_harga" id="total_harga" class="form-control" type="hidden" value="{{$total}}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <div class="col-2"></div>
                             <div class="col-2 d-flex justify-content-start">
                                 <div>

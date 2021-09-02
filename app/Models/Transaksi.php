@@ -19,5 +19,7 @@ class Transaksi extends Model
         'alamat_klien',
         'ponsel_klien',
         'total_harga',
+        'email_klien',
+        'status_pembayaran',
     ];
 }

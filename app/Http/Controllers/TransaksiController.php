@@ -6,6 +6,8 @@ use App\Models\Produk;
 use App\Models\Transaksi;
 use App\Models\TransaksiDetail;
 use Illuminate\Http\Request;
+use Midtrans\Config;
+use Midtrans\Snap;
 
 class TransaksiController extends Controller
 {
@@ -68,10 +70,39 @@ class TransaksiController extends Controller
     }
 
     public function show($id){
+        Config::$serverKey = 'SB-Mid-server-1py3CMqwY98oJihRXSa0sn6x';
+        Config::$isProduction = false;
+        Config::$isSanitized = false;
+        Config::$is3ds = false;
         $data = [
             'transaksi' => Transaksi::findOrFail($id),
             'detail' => TransaksiDetail::where('id_transaksi', $id)->get()
         ];
+        $params = [
+            'transaction_details' => [
+                'order_id' => 'INV-'.strtotime(now()),
+                'gross_amount' => $data['transaksi']->total_harga,
+            ],
+            'item_details' => [],
+            'customer_details' => [
+                'first_name' => $data['transaksi']->nama_klien,
+                'email' => $data['transaksi']->email_klien,
+                'phone' => $data['transaksi']->ponsel_klien,
+            ]
+        ];
+        foreach ($data['detail'] as $value) {
+            array_push($params['item_details'],[
+                'id' => $value->id,
+                'price' => $value->harga,
+                'quantity' => $value->jumlah,
+                'name' => $value->produk->nama_produk
+            ]);
+        }
+        $data['snapToken'] = Snap::getSnapToken($params);
         return view('transaksi.show', $data);
+    }
+
+    public function invoice($id){
+
     }
 }

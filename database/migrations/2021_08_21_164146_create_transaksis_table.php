@@ -19,6 +19,8 @@ class CreateTransaksisTable extends Migration
             $table->string('nama_klien');
             $table->string('alamat_klien');
             $table->string('ponsel_klien');
+            $table->string('email_klien');
+            $table->enum('status_pembayaran',['Menunggu','Sudah','Kadaluarsa','Bayar'])->default('Menunggu');
             $table->bigInteger('total_harga');
             $table->timestamps();
         });
