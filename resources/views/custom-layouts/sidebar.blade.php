@@ -17,6 +17,12 @@
                         <i class="mdi mdi-database"></i><span> Data Produk </span>
                     </a>
                 </li>
+                <li class="menu-title">Transaksi</li>
+                <li>
+                    <a href="{{url('transaksi')}}" class="waves-effect">
+                        <i class="mdi mdi-database"></i><span> Data Transaksi </span>
+                    </a>
+                </li>
             </ul>
 
         </div>

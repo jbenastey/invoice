@@ -20,4 +20,8 @@ class TransaksiDetail extends Model
         'jumlah',
         'subtotal_harga',
     ];
+
+    public function produk(){
+        return $this->hasOne(Produk::class,'id','id_produk');
+    }
 }

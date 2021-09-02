@@ -8,7 +8,6 @@
 
 $(document).ready(function () {
     'use strict';
-
     $('.repeater').repeater({
         defaultValues: {
             'textarea-input': 'foo',

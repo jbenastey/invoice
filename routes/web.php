@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,16 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function (){
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
     Route::resource('produk',ProdukController::class);
+    Route::get('transaksi',[TransaksiController::class,'index'])->name('transaksi.index');
+    Route::get('transaksi/create',[TransaksiController::class,'create'])->name('transaksi.create');
+    Route::post('transaksi-detail/store',[TransaksiController::class,'storeDetail'])->name('transaksi-detail.store');
+
+    Route::get('get-product',[ProdukController::class,'getAllProduct']);
+    Route::get('get-product/{id}',[ProdukController::class,'getProduct']);
+
+    Route::get('transaksi-detail/destroy/{id}',[TransaksiController::class,'deleteDetail'])->name('transaksi-detail.destroy');
+    Route::post('transaksi/store',[TransaksiController::class,'store'])->name('transaksi.store');
+
 });
 
 

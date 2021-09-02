@@ -15,7 +15,7 @@ class CreateTransaksiDetailsTable extends Migration
     {
         Schema::create('transaksi_detail', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_transaksi');
+            $table->foreignId('id_transaksi')->nullable(true);
             $table->foreignId('id_produk');
             $table->bigInteger('harga');
             $table->integer('jumlah');

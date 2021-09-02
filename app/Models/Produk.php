@@ -20,4 +20,8 @@ class Produk extends Model
         'gambar',
         'deskripsi',
     ];
+
+    public function transaksiDetail(){
+        return $this->belongsTo(TransaksiDetail::class,'id','id_produk');
+    }
 }

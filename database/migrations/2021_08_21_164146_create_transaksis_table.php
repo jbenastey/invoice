@@ -15,7 +15,7 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
-            $table->string('invoice');
+            $table->string('invoice')->nullable(true);
             $table->string('nama_klien');
             $table->string('alamat_klien');
             $table->string('ponsel_klien');

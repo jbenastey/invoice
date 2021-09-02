@@ -106,4 +106,11 @@ class ProdukController extends Controller
     {
         //
     }
+
+    public function getAllProduct(){
+        return json_encode(Produk::all());
+    }
+    public function getProduct($id){
+        return json_encode(Produk::find($id));
+    }
 }
