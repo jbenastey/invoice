@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('transaksi-detail/destroy/{id}',[TransaksiController::class,'deleteDetail'])->name('transaksi-detail.destroy');
     Route::post('transaksi/store',[TransaksiController::class,'store'])->name('transaksi.store');
     Route::get('transaksi/{id}',[TransaksiController::class,'show'])->name('transaksi.show');
-    Route::get('invoice/{id}',[TransaksiController::class,'invoice'])->name('transaksi.invoice');
+    Route::post('invoice',[TransaksiController::class,'invoice'])->name('transaksi.invoice');
 
 });
 

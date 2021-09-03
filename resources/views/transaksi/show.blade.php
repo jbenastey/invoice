@@ -36,7 +36,7 @@
                         <label for="ponsel_klien" class="col-2">Nomor Invoice</label>
                         <div class="col-9">
                             @if($transaksi->invoice != null)
-                            <input name="ponsel_klien" id="ponsel_klien"  value="{{$transaksi->invoice}}" class="form-control" type="number" readonly placeholder="Isikan nomor hp"/>
+                            <input name="ponsel_klien" id="ponsel_klien"  value="{{$transaksi->invoice}}" class="form-control" type="text" readonly placeholder="Isikan nomor hp"/>
                             @else
                                 <button class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
                             @endif
@@ -103,6 +103,21 @@
                     // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                     console.log('pending')
                     console.log(result)
+                    $.ajax({
+                        url : "{{route('transaksi.invoice')}}",
+                        type : "POST",
+                        data : {
+                            "_token" : "{{ csrf_token() }}",
+                            invoice : result.order_id,
+                            id_transaksi : "{{$transaksi->id}}"
+                        },
+                        success:function (response) {
+                            console.log(response);
+                        },
+                        error:function (response){
+                            console.log(response);
+                        }
+                    })
                 },
                 // Optional
                 onError: function (result) {

@@ -8,6 +8,7 @@ use App\Models\TransaksiDetail;
 use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Snap;
+use Midtrans\Transaction;
 
 class TransaksiController extends Controller
 {
@@ -70,10 +71,11 @@ class TransaksiController extends Controller
     }
 
     public function show($id){
+        Config::$clientKey = 'SB-Mid-client-Vpl5LKiW1D6U8pzl';
         Config::$serverKey = 'SB-Mid-server-1py3CMqwY98oJihRXSa0sn6x';
         Config::$isProduction = false;
-        Config::$isSanitized = false;
-        Config::$is3ds = false;
+        Config::$isSanitized = true;
+        Config::$is3ds = true;
         $data = [
             'transaksi' => Transaksi::findOrFail($id),
             'detail' => TransaksiDetail::where('id_transaksi', $id)->get()
@@ -99,10 +101,19 @@ class TransaksiController extends Controller
             ]);
         }
         $data['snapToken'] = Snap::getSnapToken($params);
+        try {
+            $data['status'] = Transaction::status('INV-1630602549');
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            die();
+        }
         return view('transaksi.show', $data);
     }
 
-    public function invoice($id){
-
+    public function invoice(Request $request){
+        Transaksi::where('id',$request->input('id_transaksi'))
+            ->update([
+               'invoice' => $request->input('invoice'),
+            ]);
     }
 }
