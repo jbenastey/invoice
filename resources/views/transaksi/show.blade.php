@@ -1,6 +1,6 @@
 @extends('custom-layouts.app')
 
-@section('header','Lihar Data Transaksi')
+@section('header','Lihat Data Transaksi')
 
 @section('content')
     {{-- dynamic content--}}
