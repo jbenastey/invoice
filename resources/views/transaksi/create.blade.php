@@ -81,7 +81,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('transaksi.store')}}" method="post">
+                    <form action="{{route('transaksi.store')}}" method="post" class="custom-validation">
                         @csrf
                         @method('POST')
                         <div class="form-group row">
@@ -99,7 +99,8 @@
                         <div class="form-group row">
                             <label for="ponsel_klien" class="col-2">Nomor HP</label>
                             <div class="col-9">
-                                <input name="ponsel_klien" id="ponsel_klien" class="form-control" type="number" required placeholder="Isikan nomor hp"/>
+                                <input name="ponsel_klien" id="ponsel_klien" class="form-control" type="number" required
+                                       data-parsley-minlength="11" placeholder="Isikan nomor hp"/>
                                 <input name="total_harga" id="total_harga" class="form-control" type="hidden" value="{{$total}}"/>
                             </div>
                         </div>
@@ -114,7 +115,7 @@
                             <div class="col-2"></div>
                             <div class="col-2 d-flex justify-content-start">
                                 <div>
-                                    <button type="submit" class="btn btn-primary">Simpan Transaksi</button>
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan Transaksi</button>
                                 </div>
                             </div>
                         </div>

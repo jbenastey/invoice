@@ -105,9 +105,11 @@
 <script src="{{asset('veltrix/plugins/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
 <script src="{{asset('veltrix/assets/pages/lightbox.js')}}"></script>
 <script src="{{asset('veltrix/plugins/select2/js/select2.min.js')}}"></script>
+<script src="{{asset('veltrix/plugins/parsleyjs/parsley.min.js')}}"></script>
 
 <!-- App js -->
 <script src="{{asset('veltrix/assets/pages/form-advanced.js')}}"></script>
+<script src="{{asset('veltrix/assets/pages/form-validation.init.js')}}"></script>
 <script src="{{asset('veltrix/assets/js/app.js')}}"></script>
 <script src="{{asset('veltrix/assets/js/custom.js')}}"></script>
 @yield('script')

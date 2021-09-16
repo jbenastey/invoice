@@ -86,9 +86,11 @@ class TransaksiController extends Controller
             'detail' => TransaksiDetail::where('id_transaksi', $id)->get()
         ];
 
+        $invoice = 'INV-'.substr($data['transaksi']->ponsel_klien,-10).strtotime(now());
+
         $params = [
             'transaction_details' => [
-                'order_id' => 'INV-'.strtotime(now()),
+                'order_id' => $invoice,
                 'gross_amount' => $data['transaksi']->total_harga,
             ],
             'item_details' => [],
