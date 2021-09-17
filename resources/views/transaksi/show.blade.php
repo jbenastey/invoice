@@ -34,10 +34,14 @@
                     </div>
                     <div class="form-group row">
                         <label for="ponsel_klien" class="col-2">Nomor Invoice</label>
-                        <div class="col-9">
                             @if($transaksi->invoice != null)
-                            <input name="ponsel_klien" id="ponsel_klien"  value="{{$transaksi->invoice}}" class="form-control" type="text" readonly placeholder="Isikan nomor hp"/>
+                            <div class="col-7">
+                                <input name="ponsel_klien" id="ponsel_klien"  value="{{$transaksi->invoice}}" class="form-control" type="text" readonly placeholder="Isikan nomor hp"/>
+                            </div>
+                            <div class="col-2">
+                                <a href="{{route('transaksi.cetak',$transaksi->invoice)}}" target="_blank" class="btn btn-primary btn-block">Lihat Invoice</a>
                             @else
+                            <div class="col-9">
                                 <button class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
                             @endif
                         </div>

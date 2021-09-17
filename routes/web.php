@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DashboardController::class,'index'])->name('dashboard');;
 
 Route::middleware(['auth'])->group(function (){
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
@@ -34,6 +32,7 @@ Route::middleware(['auth'])->group(function (){
     Route::post('transaksi/store',[TransaksiController::class,'store'])->name('transaksi.store');
     Route::get('transaksi/{id}',[TransaksiController::class,'show'])->name('transaksi.show');
     Route::post('invoice',[TransaksiController::class,'invoice'])->name('transaksi.invoice');
+    Route::get('cetak/{id}',[TransaksiController::class,'cetak'])->name('transaksi.cetak');
 
 });
 

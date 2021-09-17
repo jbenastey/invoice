@@ -6,6 +6,7 @@ use App\Models\Produk;
 use App\Models\Transaksi;
 use App\Models\TransaksiDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Midtrans\Config;
 use Midtrans\Notification;
 use Midtrans\Snap;
@@ -120,40 +121,6 @@ class TransaksiController extends Controller
             }
         }
 
-//        $transaction = $notif->transaction_status;
-//        $type = $notif->payment_type;
-//        $order_id = $notif->order_id;
-//        $fraud = $notif->fraud_status;
-
-//        if ($transaction == 'capture') {
-//            // For credit card transaction, we need to check whether transaction is challenge by FDS or not
-//            if ($type == 'credit_card') {
-//                if ($fraud == 'challenge') {
-//                    // TODO set payment status in merchant's database to 'Challenge by FDS'
-//                    // TODO merchant should decide whether this transaction is authorized or not in MAP
-//                    echo "Transaction order_id: " . $order_id ." is challenged by FDS";
-//                } else {
-//                    // TODO set payment status in merchant's database to 'Success'
-//                    echo "Transaction order_id: " . $order_id ." successfully captured using " . $type;
-//                }
-//            }
-//        } else if ($transaction == 'settlement') {
-//            // TODO set payment status in merchant's database to 'Settlement'
-//            echo "Transaction order_id: " . $order_id ." successfully transfered using " . $type;
-//        } else if ($transaction == 'pending') {
-//            // TODO set payment status in merchant's database to 'Pending'
-//            echo "Waiting customer to finish transaction order_id: " . $order_id . " using " . $type;
-//        } else if ($transaction == 'deny') {
-//            // TODO set payment status in merchant's database to 'Denied'
-//            echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is denied.";
-//        } else if ($transaction == 'expire') {
-//            // TODO set payment status in merchant's database to 'expire'
-//            echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is expired.";
-//        } else if ($transaction == 'cancel') {
-//            // TODO set payment status in merchant's database to 'Denied'
-//            echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is canceled.";
-//        }
-
         return view('transaksi.show', $data);
     }
 
@@ -162,5 +129,12 @@ class TransaksiController extends Controller
             ->update([
                'invoice' => $request->input('invoice'),
             ]);
+    }
+
+    public function cetak($id){
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->setPaper('a4', 'portrait');
+        $pdf->loadView('transaksi.cetak');
+        return $pdf->stream('invoice.pdf');
     }
 }
