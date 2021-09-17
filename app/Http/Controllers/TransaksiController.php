@@ -74,12 +74,7 @@ class TransaksiController extends Controller
     }
 
     public function show($id){
-        Config::$clientKey = config('midtrans.client_key');
-        Config::$serverKey = config('midtrans.server_key');
-        Config::$isProduction = false;
-        Config::$isSanitized = true;
-        Config::$is3ds = true;
-
+        $this->configMidtrans();
 //        $notif = new Notification();
 
         $data = [
@@ -99,6 +94,7 @@ class TransaksiController extends Controller
                 'first_name' => $data['transaksi']->nama_klien,
                 'email' => $data['transaksi']->email_klien,
                 'phone' => $data['transaksi']->ponsel_klien,
+                'address' => $data['transaksi']->alamat_klien,
             ]
         ];
 
@@ -132,9 +128,30 @@ class TransaksiController extends Controller
     }
 
     public function cetak($id){
+        $this->configMidtrans();
+
+        $data['transaksi'] = Transaksi::where('invoice',$id)->firstOrFail();
+        $data['detail'] = TransaksiDetail::where('id_transaksi', $data['transaksi']->id)->get();
+        try {
+            $data['status'] = Transaction::status($data['transaksi']->invoice);
+//            dd($data);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            die();
+        }
         $pdf = App::make('dompdf.wrapper');
         $pdf->setPaper('a4', 'portrait');
-        $pdf->loadView('transaksi.cetak');
+        $pdf->loadView('transaksi.cetak',$data);
         return $pdf->stream('invoice.pdf');
+
+//        return view('transaksi.cetak',$data);
+    }
+
+    public function configMidtrans(){
+        Config::$clientKey = config('midtrans.client_key');
+        Config::$serverKey = config('midtrans.server_key');
+        Config::$isProduction = false;
+        Config::$isSanitized = true;
+        Config::$is3ds = true;
     }
 }
