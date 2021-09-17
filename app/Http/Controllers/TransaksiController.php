@@ -111,6 +111,17 @@ class TransaksiController extends Controller
         if ($data['transaksi']->invoice != null){
             try {
                 $data['status'] = Transaction::status($data['transaksi']->invoice);
+                if ($data['status']->transaction_status === 'expire') {
+                    Transaksi::where('id',$id)
+                        ->update([
+                            'status_pembayaran' => 'Kadaluarsa'
+                        ]);
+                } elseif($data['status']->transaction_status === 'settlement') {
+                    Transaksi::where('id',$id)
+                        ->update([
+                            'status_pembayaran' => 'Sudah'
+                        ]);
+                }
             } catch (\Exception $e) {
                 echo $e->getMessage();
                 die();

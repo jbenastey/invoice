@@ -32,20 +32,30 @@
                             <input name="email_klien" id="email_klien"  value="{{$transaksi->email_klien}}" class="form-control" type="email" readonly placeholder="Isikan nomor hp"/>
                         </div>
                     </div>
+                    @if($transaksi->invoice != null)
                     <div class="form-group row">
                         <label for="ponsel_klien" class="col-2">Nomor Invoice</label>
-                            @if($transaksi->invoice != null)
-                            <div class="col-7">
-                                <input name="ponsel_klien" id="ponsel_klien"  value="{{$transaksi->invoice}}" class="form-control" type="text" readonly placeholder="Isikan nomor hp"/>
-                            </div>
-                            <div class="col-2">
-                                <a href="{{route('transaksi.cetak',$transaksi->invoice)}}" target="_blank" class="btn btn-primary btn-block">Lihat Invoice</a>
-                            @else
-                            <div class="col-9">
-                                <button class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
-                            @endif
+                        <div class="col-7">
+                            <input name="ponsel_klien" id="ponsel_klien"  value="{{$transaksi->invoice}}" class="form-control" type="text" readonly placeholder="Isikan nomor hp"/>
+                        </div>
+                        <div class="col-2">
+                            <a href="{{route('transaksi.cetak',$transaksi->invoice)}}" target="_blank" class="btn btn-primary btn-block">Lihat Invoice</a>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="ponsel_klien" class="col-2">Status Bayar</label>
+                        <div class="col-9">
+                            <input name="ponsel_klien" id="ponsel_klien"  value="{{$transaksi->status_pembayaran}}" class="form-control" type="text" readonly placeholder="Isikan nomor hp"/>
+                        </div>
+                    </div>
+                    @else
+                    <div class="form-group row">
+                        <label for="ponsel_klien" class="col-2">Nomor Invoice</label>
+                        <div class="col-9">
+                            <button class="btn btn-primary" id="pay-button">Bayar Sekarang</button>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
