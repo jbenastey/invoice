@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class,'index'])->name('dashboard');;
 
 Route::middleware(['auth'])->group(function (){
+    Route::get('/', [DashboardController::class,'index'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
     Route::resource('produk',ProdukController::class);
     Route::get('transaksi',[TransaksiController::class,'index'])->name('transaksi.index');
