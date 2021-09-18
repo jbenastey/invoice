@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="invoice-title">
                 <div class="mb-4">
-                    <img src="{{asset('veltrix/assets/images/logo-sm.png')}}" alt="logo" height="25"/>
+                    <img src="{{asset('veltrix/assets/images/bill.png')}}" alt="logo" height="50"/>
                 </div>
             </div>
             <div class="row">

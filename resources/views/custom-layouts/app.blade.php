@@ -8,7 +8,7 @@
     <title>Invoice</title>
     <meta content="Admin Dashboard" name="description" />
     <meta content="Themesbrand" name="author" />
-    <link rel="shortcut icon" href="{{asset('veltrix/assets/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('veltrix/assets/images/bill.png')}}">
 
     <!-- DataTables -->
     <link href="{{asset('veltrix/plugins/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />

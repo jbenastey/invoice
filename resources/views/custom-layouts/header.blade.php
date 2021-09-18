@@ -4,10 +4,10 @@
     <div class="topbar-left">
         <a href="index.html" class="logo">
                         <span>
-                                <img src="{{asset('veltrix/assets/images/logo-sm.png')}}" alt="" height="18">
-                            </span><span style="color: white">Invoice</span>
+                                <img src="{{asset('veltrix/assets/images/bill.png')}}" alt="" height="30">
+                            </span><span style="color: white" class="ml-2">Invoice</span>
             <i>
-                <img src="{{asset('veltrix/assets/images/logo-sm.png')}}" alt="" height="22">
+                <img src="{{asset('veltrix/assets/images/bill.png')}}" alt="" height="22">
             </i>
         </a>
     </div>
