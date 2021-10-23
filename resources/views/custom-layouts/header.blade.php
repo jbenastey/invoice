@@ -29,6 +29,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                         <!-- item-->
+                        <a href="" class="dropdown-item">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="mdi mdi-power text-danger"></i> Logout</a>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SellerController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::middleware(['auth'])->group(function (){
     Route::post('invoice',[TransaksiController::class,'invoice'])->name('transaksi.invoice');
     Route::get('cetak/{id}',[TransaksiController::class,'cetak'])->name('transaksi.cetak');
 
+    Route::get('seller',[SellerController::class,'index']);
 });
 
 

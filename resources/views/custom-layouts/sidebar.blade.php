@@ -23,6 +23,12 @@
                         <i class="mdi mdi-database-edit"></i><span> Data Transaksi </span>
                     </a>
                 </li>
+                <li class="menu-title">Data User</li>
+                <li>
+                    <a href="{{url('seller')}}" class="waves-effect">
+                        <i class="mdi mdi-account"></i><span> Data Seller </span>
+                    </a>
+                </li>
             </ul>
 
         </div>
